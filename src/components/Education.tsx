@@ -15,23 +15,32 @@ interface Certification {
 
 const education: Education[] = [
   {
-    degree: 'Ingeniería en Sistemas Computacionales',
-    institution: 'Universidad Tecnológica',
-    period: '2016 - 2020',
-    description: 'Especialización en Desarrollo de Software'
+    degree: 'Ingeniería de Software',
+    institution: 'Universidad Iberoamericana',
+    period: '04/2022 – 2024'
+  },
+  {
+    degree: 'Tecnólogo en Análisis y Desarrollo de Sistemas de Información',
+    institution: 'SENA',
+    period: '02/2014 – 12/2016'
+  },
+  {
+    degree: 'Técnico en Programación de Software',
+    institution: 'SENA',
+    period: '02/2012 – 12/2014'
+  },
+  {
+    degree: 'Diplomado en PHP',
+    institution: 'Politécnico Grancolombiano',
+    period: '03/2019 – 12/2020'
   }
 ];
 
 const certifications: Certification[] = [
   {
-    name: 'AWS Certified Developer',
-    issuer: 'Amazon Web Services',
-    year: '2023'
-  },
-  {
-    name: 'Professional Scrum Master',
-    issuer: 'Scrum.org',
-    year: '2022'
+    name: 'Claude 101',
+    issuer: 'Anthropic',
+    year: '2026'
   }
 ];
 

@@ -9,27 +9,51 @@ interface SkillCategory {
 
 const skillCategories: SkillCategory[] = [
   {
-    category: 'Frontend Development',
-    level: 95,
-    skills: ['React', 'TypeScript', 'Tailwind CSS', 'Next.js', 'Vue.js', 'CSS3'],
+    category: 'Frontend',
+    level: 90,
+    skills: ['Vue.js', 'Nuxt', 'JavaScript', 'TypeScript'],
     color: 'from-blue-600 to-cyan-600'
   },
   {
-    category: 'Backend Development',
-    level: 90,
-    skills: ['Node.js', 'Python', 'PostgreSQL', 'MongoDB', 'REST APIs', 'GraphQL'],
+    category: 'Backend',
+    level: 92,
+    skills: ['Node.js', 'NestJS', 'PHP', 'Laravel'],
     color: 'from-green-600 to-emerald-600'
   },
   {
-    category: 'DevOps & Cloud',
+    category: 'Bases de Datos',
+    level: 88,
+    skills: ['PostgreSQL', 'MySQL', 'Firebase/Firestore', 'Redis'],
+    color: 'from-teal-600 to-cyan-600'
+  },
+  {
+    category: 'Automatización e IA',
+    level: 90,
+    skills: ['n8n', 'OpenAI GPT-4o', 'Evolution API'],
+    color: 'from-indigo-600 to-blue-600'
+  },
+  {
+    category: 'Infraestructura',
     level: 85,
-    skills: ['Docker', 'AWS', 'CI/CD', 'Git', 'Linux', 'Supabase'],
+    skills: ['Docker', 'PM2', 'VPS (Contabo)', 'Nginx'],
     color: 'from-orange-600 to-red-600'
   },
   {
-    category: 'Liderazgo & Métodos',
-    level: 88,
-    skills: ['Trabajo en equipo', 'Liderazgo técnico', 'Agile/Scrum', 'Mentoría', 'Problem Solving'],
+    category: 'Integraciones',
+    level: 90,
+    skills: ['Meta Business Suite (WhatsApp/Facebook/Instagram)', 'Twilio (A2P 10DLC)'],
+    color: 'from-cyan-600 to-blue-600'
+  },
+  {
+    category: 'Herramientas',
+    level: 85,
+    skills: ['Git', 'Postman', 'Prisma'],
+    color: 'from-slate-600 to-slate-800'
+  },
+  {
+    category: 'Liderazgo & Habilidades Blandas',
+    level: 95,
+    skills: ['Liderazgo de equipos técnicos', 'Gestión de múltiples cuentas de cliente', 'Adaptación al cambio', 'Mejora continua', 'Comunicación con clientes', 'Trabajo en equipo'],
     color: 'from-purple-600 to-pink-600'
   }
 ];

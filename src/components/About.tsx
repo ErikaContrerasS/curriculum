@@ -1,21 +1,21 @@
-import { Zap, Target, Lightbulb } from 'lucide-react';
+import { Users, Bot, MessageCircle } from 'lucide-react';
 
 function About() {
   const highlights = [
     {
-      icon: Zap,
-      title: 'Rendimiento',
-      description: 'Optimizo apps para velocidad y eficiencia, reduciendo tiempos de carga'
+      icon: Users,
+      title: 'Liderazgo Técnico',
+      description: 'Lidero el Departamento de Sistemas y coordino un equipo técnico entregando soluciones para múltiples cuentas de cliente'
     },
     {
-      icon: Target,
-      title: 'Precisión',
-      description: 'Código limpio y escalable que mantiene calidad a largo plazo'
+      icon: Bot,
+      title: 'Automatización con IA',
+      description: 'Diseño workflows en n8n integrados con GPT-4o para bots conversacionales de atención y ventas'
     },
     {
-      icon: Lightbulb,
-      title: 'Innovación',
-      description: 'Siempre explorando nuevas tecnologías y mejores prácticas'
+      icon: MessageCircle,
+      title: 'Integraciones de Mensajería',
+      description: 'WhatsApp Business API, Meta Business Suite y Twilio para mensajería empresarial regulada'
     }
   ];
 
@@ -26,13 +26,13 @@ function About() {
 
         <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl shadow-lg p-12 border border-blue-100 mb-12">
           <p className="text-slate-700 text-lg leading-relaxed mb-6">
-            Soy una ingeniera de software apasionada por crear experiencias digitales que impacten. Con especialidad en desarrollo full-stack, diseño e implemento soluciones que no solo funcionan bien, sino que escalan eficientemente.
+            Desarrolladora Full Stack con más de 6 años de experiencia y liderazgo técnico en curso como Líder del Departamento de Sistemas en Konekthub (AMCL Group). Especializada en el diseño y mantenimiento de plataformas CRM multitenant, automatización de procesos con IA (n8n, GPT-4o) e integraciones de mensajería (WhatsApp Business API, Meta, Twilio).
           </p>
           <p className="text-slate-700 text-lg leading-relaxed mb-6">
-            Mi enfoque combina arquitectura robusta, código limpio y diseño intuitivo. Me encanta resolver problemas complejos y trabajar en equipos que comparten la visión de excelencia técnica.
+            Tengo experiencia gestionando infraestructura en la nube, liderando equipos técnicos y entregando soluciones para múltiples cuentas de cliente de forma simultánea.
           </p>
           <p className="text-slate-700 text-lg leading-relaxed">
-            Desde startups en crecimiento hasta empresas consolidadas, he liderado proyectos que generan valor real para usuarios y negocio.
+            Busco una oportunidad remota donde aportar experiencia full stack y de liderazgo técnico a un equipo dinámico.
           </p>
         </div>
 

@@ -1,4 +1,3 @@
-import { Github, Linkedin, Mail, Briefcase, GraduationCap, Award, Code2 } from 'lucide-react';
 import Header from './components/Header';
 import About from './components/About';
 import Experience from './components/Experience';
@@ -21,7 +20,7 @@ function App() {
       </main>
       <footer className="bg-slate-900 text-slate-300 py-8 mt-20">
         <div className="max-w-6xl mx-auto px-6 text-center">
-          <p>© 2024 - Hecho con dedicación</p>
+          <p>© 2026 Erika Julieth Contreras Castillo</p>
         </div>
       </footer>
     </div>

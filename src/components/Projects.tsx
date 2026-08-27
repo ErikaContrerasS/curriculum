@@ -13,28 +13,24 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: 'E-commerce Platform',
-    description: 'Plataforma de comercio electrónico escalable',
-    fullDescription: 'Plataforma completa de comercio electrónico con carrito de compras inteligente, pasarela de pagos integrada con Stripe, panel de administración en tiempo real y sistema de inventario automático.',
-    tech: ['React', 'Node.js', 'PostgreSQL', 'Stripe', 'Redux'],
-    github: 'https://github.com',
-    demo: 'https://demo.com',
+    title: 'CRM Multitenant Konekthub',
+    description: 'Plataforma CRM multitenant con automatización de IA',
+    fullDescription: 'Plataforma CRM multitenant que atiende simultáneamente a múltiples cuentas de cliente (Element Insurance, Partner Group, Unity Financial), con bots conversacionales de atención y ventas construidos en n8n + GPT-4o e integraciones de WhatsApp vía Evolution API y Meta Business Suite.',
+    tech: ['Vue.js', 'NestJS', 'TypeScript', 'PostgreSQL', 'Firebase/Firestore', 'n8n', 'GPT-4o'],
     color: 'from-blue-600 to-cyan-600'
   },
   {
-    title: 'Dashboard Analytics',
-    description: 'Visualización de datos en tiempo real',
-    fullDescription: 'Dashboard interactivo con gráficos animados, métricas personalizables, exportación de reportes y análisis predictivos usando machine learning.',
-    tech: ['TypeScript', 'Next.js', 'Chart.js', 'Supabase', 'TensorFlow.js'],
-    github: 'https://github.com',
+    title: 'CRM Element Insurance',
+    description: 'CRM de ventas y procesamiento de pólizas',
+    fullDescription: 'Diseño del pipeline de ventas y procesamiento (Nuevo Lead → Agendado → Venta Cerrada) con creación automática de pólizas al cierre de negocio, sincronización de estados mediante Firebase Cloud Functions y control de acceso basado en roles (RBAC) para 8+ perfiles de usuario.',
+    tech: ['Vue.js', 'NestJS', 'Firebase/Firestore', 'PostgreSQL'],
     color: 'from-purple-600 to-pink-600'
   },
   {
-    title: 'Mobile App',
-    description: 'Aplicación mobile cross-platform',
-    fullDescription: 'Aplicación móvil nativa para iOS y Android con gestión de tareas inteligente, sincronización en tiempo real con la nube y notificaciones push personalizadas.',
-    tech: ['React Native', 'Firebase', 'Redux', 'Expo'],
-    github: 'https://github.com',
+    title: 'Affinity, Raudoc & Tiktime',
+    description: 'Contribuciones a proyectos de producto en Cooweb',
+    fullDescription: 'Desarrollo de features en tres productos del equipo de Cooweb, usando JavaScript, TypeScript, Node.js, PHP, Vue.js, Nuxt y Firebase, en el marco del crecimiento de desarrolladora junior a líder técnica.',
+    tech: ['JavaScript', 'TypeScript', 'Node.js', 'PHP', 'Vue.js', 'Nuxt'],
     color: 'from-orange-600 to-red-600'
   }
 ];
