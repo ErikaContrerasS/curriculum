@@ -22,7 +22,7 @@ export const profileYaml: YamlLine[] = [
   { indent: 1, key: 'focus', value: 'CRM multitenant · IA aplicada · liderazgo' },
   { indent: 1, key: 'current', value: 'Freelance @ En Stock' },
   { indent: 0, key: 'stack' },
-  { indent: 1, key: 'frontend', value: 'Vue · Nuxt · React · TypeScript' },
+  { indent: 1, key: 'frontend', value: 'Vue · Nuxt · React · Next.js · TypeScript' },
   { indent: 1, key: 'backend', value: 'Node.js · NestJS · Laravel · Python' },
   { indent: 1, key: 'data', value: 'PostgreSQL · MySQL · Firestore · Redis' },
   { indent: 1, key: 'cloud', value: 'GCP · AWS · Docker · GitHub Actions' },
@@ -39,18 +39,69 @@ export const about = [
   'Lideré equipos Scrum, implanté revisiones de código por Pull Requests y mentoreé a 10 desarrolladores junior. Hoy uso Claude Code y GitHub Copilot a diario, revisando con criterio el código que generan.',
 ];
 
+export type StackItem = { name: string; icon?: string };
+
 export type StackGroup = {
   key: string;
-  icons?: string;
-  items: string[];
+  items: StackItem[];
 };
 
 export const stack: StackGroup[] = [
-  { key: 'frontend', icons: 'vue,nuxtjs,react,js,ts,tailwind', items: ['Vue.js', 'Nuxt', 'React', 'JavaScript', 'TypeScript', 'Tailwind CSS'] },
-  { key: 'backend', icons: 'nodejs,nestjs,php,laravel,py', items: ['Node.js', 'NestJS', 'PHP', 'Laravel', 'Python'] },
-  { key: 'data', icons: 'postgres,mysql,firebase,redis', items: ['PostgreSQL', 'MySQL', 'Firebase/Firestore', 'Redis'] },
-  { key: 'infra', icons: 'docker,gcp,aws,githubactions,nginx', items: ['Docker', 'GCP', 'AWS (EC2, S3)', 'GitHub Actions', 'Nginx', 'PM2'] },
-  { key: 'automation_ai', items: ['n8n', 'OpenAI GPT-4o', 'Agentes con herramientas', 'WhatsApp Business API', 'Meta Business Suite', 'Twilio', 'Claude Code', 'GitHub Copilot'] },
+  {
+    key: 'frontend',
+    items: [
+      { name: 'Vue.js', icon: 'vue' },
+      { name: 'Nuxt', icon: 'nuxtjs' },
+      { name: 'React', icon: 'react' },
+      { name: 'Next.js', icon: 'nextjs' },
+      { name: 'JavaScript', icon: 'js' },
+      { name: 'TypeScript', icon: 'ts' },
+      { name: 'Tailwind CSS', icon: 'tailwind' },
+    ],
+  },
+  {
+    key: 'backend',
+    items: [
+      { name: 'Node.js', icon: 'nodejs' },
+      { name: 'NestJS', icon: 'nestjs' },
+      { name: 'PHP', icon: 'php' },
+      { name: 'Laravel', icon: 'laravel' },
+      { name: 'Python', icon: 'py' },
+    ],
+  },
+  {
+    key: 'data',
+    items: [
+      { name: 'PostgreSQL', icon: 'postgres' },
+      { name: 'MySQL', icon: 'mysql' },
+      { name: 'Firebase/Firestore', icon: 'firebase' },
+      { name: 'Redis', icon: 'redis' },
+    ],
+  },
+  {
+    key: 'infra',
+    items: [
+      { name: 'Docker', icon: 'docker' },
+      { name: 'GCP', icon: 'gcp' },
+      { name: 'AWS (EC2, S3)', icon: 'aws' },
+      { name: 'GitHub Actions', icon: 'githubactions' },
+      { name: 'Nginx', icon: 'nginx' },
+      { name: 'PM2' },
+    ],
+  },
+  {
+    key: 'automation_ai',
+    items: [
+      { name: 'n8n' },
+      { name: 'OpenAI GPT-4o' },
+      { name: 'Agentes con herramientas' },
+      { name: 'WhatsApp Business API' },
+      { name: 'Meta Business Suite' },
+      { name: 'Twilio' },
+      { name: 'Claude Code' },
+      { name: 'GitHub Copilot' },
+    ],
+  },
 ];
 
 export type Job = {
