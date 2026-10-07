@@ -1,27 +1,27 @@
-import Header from './components/Header';
+import Nav from './components/Nav';
+import Hero from './components/Hero';
 import About from './components/About';
-import Experience from './components/Experience';
-import Skills from './components/Skills';
-import Education from './components/Education';
+import Stack from './components/Stack';
+import Career from './components/Career';
 import Projects from './components/Projects';
+import Education from './components/Education';
 import Contact from './components/Contact';
 
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
-      <Header />
-      <main className="max-w-6xl mx-auto px-6 py-12 space-y-20">
+    <div className="min-h-screen">
+      <Nav />
+      <Hero />
+      <main className="mx-auto max-w-5xl space-y-20 px-5 py-16">
         <About />
-        <Experience />
-        <Skills />
+        <Stack />
+        <Career />
         <Projects />
         <Education />
         <Contact />
       </main>
-      <footer className="bg-slate-900 text-slate-300 py-8 mt-20">
-        <div className="max-w-6xl mx-auto px-6 text-center">
-          <p>© 2026 Erika Julieth Contreras Castillo</p>
-        </div>
+      <footer className="border-t border-term-line/50 py-8 text-center font-mono text-xs text-term-muted">
+        Made with 💜 and lots of coffee from Bogotá, Colombia · © {new Date().getFullYear()} Erika Contreras
       </footer>
     </div>
   );
