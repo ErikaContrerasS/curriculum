@@ -16,6 +16,9 @@ export default {
           violet: '#a78bfa',
           rose: '#fb7185',
           amber: '#fbbf24',
+          pink: '#f9a8d4',
+          magenta: '#f472b6',
+          lavender: '#c4b5fd',
         },
       },
       fontFamily: {

@@ -67,4 +67,4 @@ Proyecto iniciado con [bolt.new](https://bolt.new) y rediseñado con estética d
 ---
 
 **Erika Julieth Contreras Castillo** · Bogotá, Colombia
-[LinkedIn](https://www.linkedin.com/in/erika-julieth-contreras-castillo-a6456235b) · [GitHub](https://github.com/ErikaContrerasS)
+[LinkedIn](https://www.linkedin.com/in/ing-erika-julieth-contreras-castillo) · [GitHub](https://github.com/ErikaContrerasS)
