@@ -5,7 +5,7 @@ import { profile } from '../data';
 const items = [
   { icon: Mail, label: 'email', value: profile.email, href: `mailto:${profile.email}` },
   { icon: Phone, label: 'phone', value: profile.phone, href: profile.phoneHref },
-  { icon: Linkedin, label: 'linkedin', value: 'erika-julieth-contreras-castillo', href: profile.linkedin },
+  { icon: Linkedin, label: 'linkedin', value: 'ing-erika-julieth-contreras-castillo', href: profile.linkedin },
   { icon: Github, label: 'github', value: 'ErikaContrerasS', href: profile.github },
   { icon: MapPin, label: 'location', value: profile.location },
 ];

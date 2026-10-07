@@ -6,7 +6,7 @@ export const profile = {
   email: 'ingerikacontreras@outlook.com',
   phone: '+57 304 406 3406',
   phoneHref: 'tel:+573044063406',
-  linkedin: 'https://www.linkedin.com/in/erika-julieth-contreras-castillo-a6456235b',
+  linkedin: 'https://www.linkedin.com/in/ing-erika-julieth-contreras-castillo',
   github: 'https://github.com/ErikaContrerasS',
   cv: '/Erika-Contreras-CV.pdf',
 };
