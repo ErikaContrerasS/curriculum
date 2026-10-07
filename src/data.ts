@@ -22,7 +22,7 @@ export const profileYaml: YamlLine[] = [
   { indent: 1, key: 'focus', value: 'CRM multitenant · IA aplicada · liderazgo' },
   { indent: 1, key: 'current', value: 'Freelance @ En Stock' },
   { indent: 0, key: 'stack' },
-  { indent: 1, key: 'frontend', value: 'Vue · Nuxt · React · TypeScript' },
+  { indent: 1, key: 'frontend', value: 'Vue · Nuxt · React · Next.js · TypeScript' },
   { indent: 1, key: 'backend', value: 'Node.js · NestJS · Laravel · Python' },
   { indent: 1, key: 'data', value: 'PostgreSQL · MySQL · Firestore · Redis' },
   { indent: 1, key: 'cloud', value: 'GCP · AWS · Docker · GitHub Actions' },
@@ -46,7 +46,7 @@ export type StackGroup = {
 };
 
 export const stack: StackGroup[] = [
-  { key: 'frontend', icons: 'vue,nuxtjs,react,js,ts,tailwind', items: ['Vue.js', 'Nuxt', 'React', 'JavaScript', 'TypeScript', 'Tailwind CSS'] },
+  { key: 'frontend', icons: 'vue,nuxtjs,react,nextjs,js,ts,tailwind', items: ['Vue.js', 'Nuxt', 'React', 'Next.js', 'JavaScript', 'TypeScript', 'Tailwind CSS'] },
   { key: 'backend', icons: 'nodejs,nestjs,php,laravel,py', items: ['Node.js', 'NestJS', 'PHP', 'Laravel', 'Python'] },
   { key: 'data', icons: 'postgres,mysql,firebase,redis', items: ['PostgreSQL', 'MySQL', 'Firebase/Firestore', 'Redis'] },
   { key: 'infra', icons: 'docker,gcp,aws,githubactions,nginx', items: ['Docker', 'GCP', 'AWS (EC2, S3)', 'GitHub Actions', 'Nginx', 'PM2'] },
