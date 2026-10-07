@@ -38,11 +38,11 @@ function Header() {
             </div>
 
             <div className="flex gap-4 justify-center flex-wrap">
-              <a href="https://linkedin.com/in/erika-julieth-contreras-castillo-b683a1144" target="_blank" rel="noopener noreferrer"
+              <a href="https://linkedin.com/in/erika-julieth-contreras-castillo-a6456235b" target="_blank" rel="noopener noreferrer"
                  className="group p-3 rounded-full bg-white/10 hover:bg-cyan-500 transition-all duration-300 transform hover:scale-110 backdrop-blur-sm border border-white/20">
                 <Linkedin className="w-6 h-6 group-hover:text-white" />
               </a>
-              <a href="mailto:juliethcontreras28@hotmail.com"
+              <a href="mailto:ingerikacontreras@outlook.com"
                  className="group p-3 rounded-full bg-white/10 hover:bg-blue-600 transition-all duration-300 transform hover:scale-110 backdrop-blur-sm border border-white/20">
                 <Mail className="w-6 h-6 group-hover:text-white" />
               </a>
