@@ -13,8 +13,8 @@ function Contact() {
             <Mail className="w-6 h-6 text-cyan-600 mt-1" />
             <div>
               <h3 className="font-medium text-slate-900 mb-1">Email</h3>
-              <a href="mailto:juliethcontreras28@hotmail.com" className="text-slate-600 hover:text-cyan-600 transition-colors">
-                juliethcontreras28@hotmail.com
+              <a href="mailto:ingerikacontreras@outlook.com" className="text-slate-600 hover:text-cyan-600 transition-colors">
+                ingerikacontreras@outlook.com
               </a>
             </div>
           </div>
@@ -31,7 +31,7 @@ function Contact() {
             <Linkedin className="w-6 h-6 text-cyan-600 mt-1" />
             <div>
               <h3 className="font-medium text-slate-900 mb-1">LinkedIn</h3>
-              <a href="https://linkedin.com/in/erika-julieth-contreras-castillo-b683a1144" target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-cyan-600 transition-colors">
+              <a href="https://linkedin.com/in/erika-julieth-contreras-castillo-a6456235b" target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-cyan-600 transition-colors">
                 erika-julieth-contreras-castillo
               </a>
             </div>
