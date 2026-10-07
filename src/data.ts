@@ -11,14 +11,26 @@ export const profile = {
   cv: '/Erika-Contreras-CV.pdf',
 };
 
-export const whoami: [string, string][] = [
-  ['name', profile.name],
-  ['role', profile.role],
-  ['location', profile.location],
-  ['experience', '6+ años construyendo y liderando software en producción'],
-  ['current', 'Full Stack Developer (Freelance) @ En Stock'],
-  ['focus', 'CRM multitenant · automatización con IA · liderazgo técnico'],
-  ['ai', 'n8n + GPT-4o · agentes · Claude Code · GitHub Copilot'],
+export type YamlLine = { indent: 0 | 1; key: string; value?: string; accent?: boolean };
+
+export const profileYaml: YamlLine[] = [
+  { indent: 0, key: 'profile' },
+  { indent: 1, key: 'subject', value: profile.name },
+  { indent: 1, key: 'role', value: profile.role },
+  { indent: 1, key: 'origin', value: profile.location },
+  { indent: 1, key: 'experience', value: '6+ años en producción' },
+  { indent: 1, key: 'focus', value: 'CRM multitenant · IA aplicada · liderazgo' },
+  { indent: 1, key: 'current', value: 'Freelance @ En Stock' },
+  { indent: 0, key: 'stack' },
+  { indent: 1, key: 'frontend', value: 'Vue · Nuxt · React · TypeScript' },
+  { indent: 1, key: 'backend', value: 'Node.js · NestJS · Laravel · Python' },
+  { indent: 1, key: 'data', value: 'PostgreSQL · MySQL · Firestore · Redis' },
+  { indent: 1, key: 'cloud', value: 'GCP · AWS · Docker · GitHub Actions' },
+  { indent: 1, key: 'ai', value: 'n8n · GPT-4o · Claude Code · Copilot' },
+  { indent: 0, key: 'contact' },
+  { indent: 1, key: 'linkedin', value: '/in/ing-erika-julieth-contreras-castillo' },
+  { indent: 1, key: 'github', value: 'ErikaContrerasS' },
+  { indent: 1, key: 'status', value: '● open to work · remoto / híbrido', accent: true },
 ];
 
 export const about = [
