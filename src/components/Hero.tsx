@@ -1,12 +1,20 @@
+import { useCallback, useState } from 'react';
 import { Download, Github, Linkedin, Mail } from 'lucide-react';
-import PhotoScanner from './PhotoScanner';
-import ProfileYaml from './ProfileYaml';
+import Dossier from './Dossier';
+import IdentityScanner from './IdentityScanner';
 import { profile } from '../data';
 
 const linkClass =
   'inline-flex items-center gap-2 rounded-lg border border-term-line px-4 py-2.5 text-term-text transition hover:border-term-pink hover:text-term-pink';
 
 function Hero() {
+  const [progress, setProgress] = useState(0);
+  const [run, setRun] = useState(0);
+  const onProgress = useCallback((pct: number) => {
+    if (pct === 0) setRun((r) => r + 1);
+    setProgress(pct);
+  }, []);
+
   return (
     <header id="top" className="grid-bg">
       <div className="mx-auto max-w-5xl px-5 pb-16 pt-14 sm:pt-20">
@@ -36,17 +44,17 @@ function Hero() {
           </a>
         </div>
 
-        {/* vim-style window: photo scanner + profile.yml */}
+        {/* identity scan: scanning the full-body capture drives the dossier reveal */}
         <div className="mt-12 overflow-hidden rounded-2xl border border-term-pink/30 bg-[#0d0913] shadow-2xl shadow-term-magenta/10">
           <div className="relative flex h-10 items-center gap-2 border-b border-term-pink/20 bg-[#1a1224] px-4">
             <span className="h-3 w-3 rounded-full bg-term-rose" />
             <span className="h-3 w-3 rounded-full bg-term-amber" />
             <span className="h-3 w-3 rounded-full bg-term-teal" />
-            <span className="absolute inset-x-0 text-center font-mono text-xs text-term-muted">vim profile.yml</span>
+            <span className="absolute inset-x-0 text-center font-mono text-xs text-term-muted">identity-scan --subject erika</span>
           </div>
           <div className="grid gap-4 p-4 sm:p-6 md:grid-cols-[minmax(0,340px)_1fr]">
-            <PhotoScanner src="/erika.jpg" label={profile.shortName} />
-            <ProfileYaml />
+            <IdentityScanner label={profile.shortName} onProgress={onProgress} />
+            <Dossier progress={progress} run={run} />
           </div>
         </div>
       </div>
