@@ -3,7 +3,7 @@ import { RotateCcw } from 'lucide-react';
 import { prefersReducedMotion } from '../motion';
 
 // Full-body capture that gets scanned, and the portrait that comes back as the match.
-const BODY_SRC = '/erika-full.jpg';
+const BODY_SRC = '/erika-full.png'; // background already removed (transparent PNG)
 const PHOTO_SRC = '/erika.jpg';
 
 const SCAN_MS = 5000;
@@ -19,13 +19,10 @@ const REGIONS = [
   { id: 'legs', label: 'PIERNAS', side: 'left', left: 27, top: 55, width: 56, height: 44 },
 ] as const;
 
-// Where the body stands in the stage (percent), and its outline in percent of the body photo,
-// used to cut the person out of the wall behind.
+// Where the body stands in the stage (percent).
 const BODY_TOP = 6;
 const BODY_HEIGHT = 83;
 const BODY_WIDTH = 39.2;
-const SILHOUETTE =
-  'polygon(34.8% 1.6%, 46.4% 1.4%, 58% 2.7%, 63.8% 5.5%, 67.2% 10.2%, 70.1% 14.8%, 73.9% 18.4%, 81.2% 19.1%, 88.4% 21.1%, 94.2% 25%, 98% 31.2%, 100% 37.5%, 100% 46.9%, 95.7% 50%, 96.2% 54.7%, 91.3% 57.8%, 82.6% 58.4%, 81.7% 62.5%, 81.2% 68.8%, 79.7% 75%, 77.7% 82.8%, 76.8% 85.9%, 75.9% 92.2%, 73.9% 97.7%, 68.1% 99.1%, 61.4% 98%, 59.4% 93%, 61.4% 86.7%, 55.1% 82.8%, 53.6% 78.1%, 51.6% 77.3%, 50.7% 78.9%, 46.4% 81.2%, 39.1% 83.6%, 30.4% 84.8%, 28.1% 84%, 33.3% 82%, 37.7% 78.1%, 34.2% 75%, 29% 70.3%, 23.2% 64.1%, 17.4% 57.8%, 15.9% 54.7%, 13% 53.9%, 7.2% 53.9%, 5.2% 50.8%, 2.9% 46.9%, 0% 43.8%, 0% 23.4%, 2.9% 21.1%, 11.6% 19.9%, 21.7% 18.8%, 18.8% 15.6%, 17.4% 11.7%, 18.8% 7.4%, 23.2% 4.3%, 29% 2.3%)';
 
 // Stage geometry in the 320×560 SVG viewBox.
 const SW = 320;
@@ -250,7 +247,7 @@ function IdentityScanner({ label, onProgress }: Props) {
           style={{ left: `${50 - BODY_WIDTH / 2}%`, top: `${BODY_TOP}%`, width: `${BODY_WIDTH}%`, height: `${BODY_HEIGHT}%` }}
         >
           <div className="holo-flicker absolute inset-0 drop-shadow-[0_0_8px_rgba(94,234,212,0.55)]">
-            <div className="absolute inset-0" style={{ clipPath: SILHOUETTE }}>
+            <div className="absolute inset-0">
               <img
                 src={BODY_SRC}
                 alt=""
@@ -259,7 +256,10 @@ function IdentityScanner({ label, onProgress }: Props) {
               <div className="absolute inset-0" style={{ clipPath: `inset(0 0 ${100 - pct}% 0)` }}>
                 <img src={BODY_SRC} alt="" className="absolute inset-0 h-full w-full object-cover" />
               </div>
-              <div className="absolute inset-0 bg-[repeating-linear-gradient(0deg,rgba(94,234,212,0.16)_0_1px,transparent_1px_3px)]" />
+              <div
+                className="absolute inset-0 bg-[repeating-linear-gradient(0deg,rgba(94,234,212,0.16)_0_1px,transparent_1px_3px)]"
+                style={{ maskImage: `url(${BODY_SRC})`, WebkitMaskImage: `url(${BODY_SRC})`, maskSize: '100% 100%', WebkitMaskSize: '100% 100%' }}
+              />
             </div>
           </div>
 
