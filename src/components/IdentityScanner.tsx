@@ -19,6 +19,26 @@ const REGIONS = [
   { id: 'legs', label: 'PIERNAS', side: 'left', left: 27, top: 55, width: 56, height: 44 },
 ] as const;
 
+// Where the body stands in the stage (percent), and its outline in percent of the body photo,
+// used to cut the person out of the wall behind.
+const BODY_TOP = 6;
+const BODY_HEIGHT = 83;
+const BODY_WIDTH = 39.2;
+const SILHOUETTE =
+  'polygon(34.8% 1.6%, 46.4% 1.4%, 58% 2.7%, 63.8% 5.5%, 67.2% 10.2%, 70.1% 14.8%, 73.9% 18.4%, 81.2% 19.1%, 88.4% 21.1%, 94.2% 25%, 98% 31.2%, 100% 37.5%, 100% 46.9%, 95.7% 50%, 96.2% 54.7%, 91.3% 57.8%, 82.6% 58.4%, 81.7% 62.5%, 81.2% 68.8%, 79.7% 75%, 77.7% 82.8%, 76.8% 85.9%, 75.9% 92.2%, 73.9% 97.7%, 68.1% 99.1%, 61.4% 98%, 59.4% 93%, 61.4% 86.7%, 55.1% 82.8%, 53.6% 78.1%, 51.6% 77.3%, 50.7% 78.9%, 46.4% 81.2%, 39.1% 83.6%, 30.4% 84.8%, 28.1% 84%, 33.3% 82%, 37.7% 78.1%, 34.2% 75%, 29% 70.3%, 23.2% 64.1%, 17.4% 57.8%, 15.9% 54.7%, 13% 53.9%, 7.2% 53.9%, 5.2% 50.8%, 2.9% 46.9%, 0% 43.8%, 0% 23.4%, 2.9% 21.1%, 11.6% 19.9%, 21.7% 18.8%, 18.8% 15.6%, 17.4% 11.7%, 18.8% 7.4%, 23.2% 4.3%, 29% 2.3%)';
+
+// Stage geometry in the 320×560 SVG viewBox.
+const SW = 320;
+const SH = 560;
+const PLATFORM_Y = 503;
+
+// Fixed sparkles in the light cone (deterministic so renders stay stable).
+const DUST = Array.from({ length: 60 }, (_, i) => ({
+  x: (i * 97.3) % SW,
+  y: 30 + ((i * 53.7) % (PLATFORM_Y - 60)),
+  delay: (i % 7) * 0.4,
+}));
+
 // Face inside the portrait (fractions of the square image).
 const FACE_BOX = { left: 0.41, top: 0.07, width: 0.38, height: 0.5 };
 
@@ -38,6 +58,46 @@ function Corners({ className = 'border-term-teal' }: { className?: string }) {
       <span className={`absolute bottom-0 left-0 h-2.5 w-2.5 border-b-2 border-l-2 ${className}`} />
       <span className={`absolute bottom-0 right-0 h-2.5 w-2.5 border-b-2 border-r-2 ${className}`} />
     </>
+  );
+}
+
+/** Holographic projector: light cone, platform rings and the scan ring travelling down the body. */
+function Stage({ scanY }: { scanY: number | null }) {
+  const cx = SW / 2;
+  const ringY = scanY === null ? null : (scanY / 100) * SH;
+  return (
+    <svg viewBox={`0 0 ${SW} ${SH}`} className="pointer-events-none absolute inset-0 h-full w-full" aria-hidden>
+      <defs>
+        <linearGradient id="holo-cone" x1="0" y1="1" x2="0" y2="0">
+          <stop offset="0" stopColor="#5eead4" stopOpacity="0.22" />
+          <stop offset="1" stopColor="#5eead4" stopOpacity="0" />
+        </linearGradient>
+        <filter id="holo-glow" x="-20%" y="-50%" width="140%" height="200%">
+          <feGaussianBlur stdDeviation="2.5" />
+        </filter>
+      </defs>
+
+      <path d={`M ${cx - 112} ${PLATFORM_Y} L ${cx - 96} 24 L ${cx + 96} 24 L ${cx + 112} ${PLATFORM_Y} Z`} fill="url(#holo-cone)" />
+      {DUST.map((d, i) => (
+        <circle key={i} cx={d.x} cy={d.y} r="0.7" fill="#5eead4" className="holo-twinkle" style={{ animationDelay: `${d.delay}s` }} />
+      ))}
+
+      <g fill="none" stroke="#5eead4">
+        <ellipse cx={cx} cy={PLATFORM_Y} rx="132" ry="29" strokeWidth="6" strokeDasharray="1 5" opacity="0.35" className="holo-spin" />
+        <ellipse cx={cx} cy={PLATFORM_Y} rx="104" ry="23" strokeWidth="6" opacity="0.5" filter="url(#holo-glow)" />
+        <ellipse cx={cx} cy={PLATFORM_Y} rx="124" ry="27" strokeWidth="1" opacity="0.3" />
+        <ellipse cx={cx} cy={PLATFORM_Y} rx="104" ry="23" strokeWidth="2.5" />
+        <ellipse cx={cx} cy={PLATFORM_Y} rx="80" ry="17.5" strokeWidth="1.2" opacity="0.5" />
+        <ellipse cx={cx} cy={PLATFORM_Y} rx="48" ry="10.5" strokeWidth="1" opacity="0.3" />
+      </g>
+
+      {ringY !== null && (
+        <g fill="none" stroke="#5eead4">
+          <ellipse cx={cx} cy={ringY} rx="92" ry="15" fill="#5eead4" fillOpacity="0.08" strokeWidth="5" opacity="0.6" filter="url(#holo-glow)" />
+          <ellipse cx={cx} cy={ringY} rx="92" ry="15" strokeWidth="1.5" />
+        </g>
+      )}
+    </svg>
   );
 }
 
@@ -176,28 +236,32 @@ function IdentityScanner({ label, onProgress }: Props) {
         </div>
         <div className="grid-bg absolute inset-0 opacity-60" />
         <p className="absolute left-4 top-4 text-[9px] tracking-widest text-term-teal/80">CAM-02 · LIVE</p>
-        <p className="absolute bottom-4 left-4 text-[9px] tracking-widest text-term-teal/80">
+        <p className="absolute right-4 top-4 text-right text-[9px] tracking-widest text-term-teal/80">
           SUJETO: {found ? label.toUpperCase() : 'DESCONOCIDO'}
         </p>
 
-        {/* Full-body capture: dim until the scan line reveals it */}
-        <div
-          className={`absolute left-[29.7%] top-[6%] h-[86%] w-[40.6%] transition-all duration-700 ${
-            phase === 'scanning' || phase === 'loading' ? 'opacity-100' : 'scale-95 opacity-0'
-          }`}
-        >
-          <img src={BODY_SRC} alt="" className="absolute inset-0 h-full w-full object-cover opacity-30 grayscale" />
-          <div className="absolute inset-0 overflow-hidden" style={{ clipPath: `inset(0 0 ${100 - pct}% 0)` }}>
-            <img src={BODY_SRC} alt="" className="absolute inset-0 h-full w-full object-cover" />
-            <div className="absolute inset-0 bg-[linear-gradient(rgba(94,234,212,0.18)_1px,transparent_1px),linear-gradient(90deg,rgba(94,234,212,0.18)_1px,transparent_1px)] bg-[size:12px_12px] mix-blend-screen" />
-          </div>
+        <Stage scanY={scanning ? BODY_TOP + (BODY_HEIGHT * pct) / 100 : null} />
 
-          {scanning && (
-            <div className="absolute -inset-x-6" style={{ top: `${pct}%` }}>
-              <div className="h-6 -translate-y-full bg-gradient-to-b from-transparent to-term-teal/30" />
-              <div className="h-0.5 -translate-y-6 bg-term-teal shadow-[0_0_10px_#5eead4]" />
+        {/* Full-body hologram: tinted and fully visible, scanned rows turn to real colour */}
+        <div
+          className={`absolute transition-all duration-700 ${
+            phase === 'scanning' || phase === 'loading' ? 'opacity-100' : '-translate-y-4 opacity-0'
+          }`}
+          style={{ left: `${50 - BODY_WIDTH / 2}%`, top: `${BODY_TOP}%`, width: `${BODY_WIDTH}%`, height: `${BODY_HEIGHT}%` }}
+        >
+          <div className="holo-flicker absolute inset-0 drop-shadow-[0_0_8px_rgba(94,234,212,0.55)]">
+            <div className="absolute inset-0" style={{ clipPath: SILHOUETTE }}>
+              <img
+                src={BODY_SRC}
+                alt=""
+                className="absolute inset-0 h-full w-full object-cover opacity-80 [filter:grayscale(1)_sepia(1)_hue-rotate(125deg)_saturate(2.6)_brightness(1.05)]"
+              />
+              <div className="absolute inset-0" style={{ clipPath: `inset(0 0 ${100 - pct}% 0)` }}>
+                <img src={BODY_SRC} alt="" className="absolute inset-0 h-full w-full object-cover" />
+              </div>
+              <div className="absolute inset-0 bg-[repeating-linear-gradient(0deg,rgba(94,234,212,0.16)_0_1px,transparent_1px_3px)]" />
             </div>
-          )}
+          </div>
 
           {REGIONS.map((r) => {
             if (pct < r.top) return null;
@@ -229,7 +293,7 @@ function IdentityScanner({ label, onProgress }: Props) {
 
         {/* Database search → enhanced portrait → match */}
         <div
-          className={`absolute left-[12%] top-[22%] w-[76%] transition-opacity duration-500 ${
+          className={`absolute left-[14%] top-[16%] w-[72%] transition-opacity duration-500 ${
             phase === 'searching' || found ? 'opacity-100' : 'pointer-events-none opacity-0'
           }`}
         >

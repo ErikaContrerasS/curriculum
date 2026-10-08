@@ -66,8 +66,57 @@ body {
   background: repeating-linear-gradient(90deg, rgba(249, 168, 212, 0.18) 0 6px, transparent 6px 8px);
 }
 
+/* Hero hologram: slight flicker on the body, twinkling dust, rotating tick ring on the platform. */
+.holo-flicker {
+  animation: holo-flicker 4s steps(1) infinite;
+}
+
+@keyframes holo-flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  31% {
+    opacity: 0.82;
+  }
+  32% {
+    opacity: 1;
+  }
+  74% {
+    opacity: 0.9;
+    transform: translateX(1px);
+  }
+  75% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.holo-twinkle {
+  animation: holo-twinkle 2.8s ease-in-out infinite;
+}
+
+@keyframes holo-twinkle {
+  50% {
+    opacity: 0.15;
+  }
+}
+
+.holo-spin {
+  animation: holo-spin 6s linear infinite;
+}
+
+@keyframes holo-spin {
+  to {
+    stroke-dashoffset: -60;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .scan-lock {
+  .scan-lock,
+  .holo-flicker,
+  .holo-twinkle,
+  .holo-spin {
     animation: none;
   }
 }
