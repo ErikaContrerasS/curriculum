@@ -1,7 +1,7 @@
 export const profile = {
   name: 'Erika Julieth Contreras Castillo',
   shortName: 'Erika Contreras',
-  role: 'Full Stack Developer & Tech Lead',
+  role: 'AI Solutions Engineer',
   location: 'Bogotá, Colombia',
   email: 'ingerikacontreras@outlook.com',
   phone: '+57 304 406 3406',
@@ -34,7 +34,7 @@ export const profileYaml: YamlLine[] = [
 ];
 
 export const about = [
-  'Soy Ingeniera de Software con más de 6 años como desarrolladora Full Stack y líder técnica en seguros, automotriz, retail B2B y SaaS.',
+  'Soy AI Solutions Engineer e Ingeniera de Software, con más de 6 años como desarrolladora Full Stack y líder técnica en seguros, automotriz, retail B2B y SaaS.',
   'Construí desde cero un CRM multitenant que gestionó 15.000 pólizas activas y 300.000 leads, y llevé a producción un agente de IA que subió la efectividad de agendamiento de ventas del 20% al 50%.',
   'Lideré equipos Scrum, implanté revisiones de código por Pull Requests y mentoreé a 10 desarrolladores junior. Hoy uso Claude Code y GitHub Copilot a diario, revisando con criterio el código que generan.',
 ];
